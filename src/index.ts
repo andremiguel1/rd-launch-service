@@ -1,9 +1,11 @@
 import { app } from './app';
 
+const PORT: string | number = process.env.PORT || 5000;
+
 const start = async () => {
-  app.listen(5000, () => {
+  app.listen(PORT, () => {
     console.log('version: 1.0.0');
-    console.log('Listening on port 5000!');
+    console.log(`Listening on port ${PORT}!`);
   });
 };
 

@@ -16,7 +16,8 @@ describe('Latest launch route', () => {
     });
 
     const response = await request(app).get('/latest').expect(200);
-    expect(response.body).toHaveProperty('id');
     expect(response).toBeTruthy();
+    expect(response.body).toBeTruthy();
+    expect(response.body).toHaveProperty('id');
   });
 });

@@ -1,6 +1,5 @@
 import express, { Request, Response } from 'express';
 import { Controller } from '../controllers/controller';
-import { GetPastLaunchesController } from '../controllers/impl/get-past-launches-controller';
 import { GetUpcomingLaunchesController } from '../controllers/impl/get-upcoming-launches-controller';
 import { HttpClientHelper } from '../helper/http-client-helper';
 import { AxiosClientHelper } from '../helper/impl/axios-client-helper';

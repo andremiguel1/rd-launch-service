@@ -4,7 +4,7 @@ import { app } from '../../src/app';
 
 describe('Past launches route', () => {
   it('should return past launches with status 200', async () => {
-    moxios.stubRequest(/api.spacexdata.com\/v4\/launches\/next/, {
+    moxios.stubRequest(/api.spacexdata.com\/v4\/launches\/past/, {
       status: 200,
       response: [
         {
@@ -17,7 +17,7 @@ describe('Past launches route', () => {
       ],
     });
 
-    const response = await request(app).get('/next').expect(200);
+    const response = await request(app).get('/past').expect(200);
     expect(response).toBeTruthy();
     expect(response.body).toBeTruthy();
   });

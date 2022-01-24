@@ -2,9 +2,9 @@ import moxios from 'moxios';
 import request from 'supertest';
 import { app } from '../../src/app';
 
-describe('Next launch route', () => {
-  it('should return next launch with status 200', async () => {
-    moxios.stubRequest(/api.spacexdata.com\/v4\/launches\/next/, {
+describe('Latest launch route', () => {
+  it('should return latest launch with status 200', async () => {
+    moxios.stubRequest(/api.spacexdata.com\/v4\/launches\/latest/, {
       status: 200,
       response: {
         id: '61e048bbbe8d8b66799018d0',
@@ -15,7 +15,7 @@ describe('Next launch route', () => {
       },
     });
 
-    const response = await request(app).get('/next').expect(200);
+    const response = await request(app).get('/latest').expect(200);
     expect(response.body).toHaveProperty('id');
     expect(response).toBeTruthy();
   });

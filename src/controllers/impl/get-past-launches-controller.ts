@@ -10,7 +10,7 @@ export class GetPastLaunchesController implements Controller<Array<Launch>> {
   public async handle(): Promise<Array<Launch>> {
     console.log('Get Past Launches Controller Handle: start');
     const { data } = await this.httpClientHelper.get<Array<Launch>>(URL_LAUNCH);
-    const itemsToReturn = data?.map(p => {
+    const itemsToReturn = data?.slice(0, 10).map(p => {
       const { id, date_local, details, flight_number, name } = p;
       return { id, date_local, details, flight_number, name };
     }) as Array<Launch>;

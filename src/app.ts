@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import 'express-async-errors';
 import { json } from 'body-parser';
 import { NotFoundError } from './common/errors/not-found-error';
@@ -10,7 +11,7 @@ import { upcomingLaunchesRouter } from './routes/upcoming-launch-router';
 
 const app = express();
 app.use(json());
-
+app.use(cors());
 app.set('trust proxy', true);
 app.use(latestLaunchRouter);
 app.use(nextLaunchRouter);
